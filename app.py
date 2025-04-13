@@ -19,6 +19,21 @@ def promotion_page():
     И начнем с Марса! Присоединяйся!"""
     return text
 
+@app.route("/image_mars")
+def image_mars_page():
+    return r"""<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <title>Привет, Марс!</title>
+                  </head>
+                  <body>
+                    <h1>Жди нас, Марс!</h1>
+                    <img src="static/images/mars.png" />
+                    <p>Вот она какая, красная планета.</p>
+                  </body>
+                </html>"""
+
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=8080)
+    app.run(port=8000, host="127.0.0.1")

@@ -24,7 +24,7 @@ def bootstrap():
 
 @app.route("/promotion_image")
 def promotion_image_page():
-    return
+    return flask.render_template("promotion_image.html")
 
 
 if __name__ == '__main__':

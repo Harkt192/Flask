@@ -5,7 +5,7 @@ app = flask.Flask(__name__)
 
 @app.route('/')
 def base_page():
-    return flask.render_template("base.html")
+    return flask.render_template("main.html")
 
 @app.route("/index")
 def index_page():

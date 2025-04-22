@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/test_style.css">
+    <title>{{ title }}</title>
+</head>
+<body>
+<header>
+    <nav class="nav-btns">
+        <div class="btn-group">
+            <form class="btn-form" action="/apple">
+                <button>Яблоко</button>
+            </form>
+            <form class="btn-form" action="/banana">
+                <button>Банан</button>
+            </form>
+            <form class="btn-form" action="/pear">
+                <button>Груша</button>
+            </form>
+            <form class="btn-form" action="/peach">
+                <button>Персик</button>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<main role="main" class="container">
+    {% block content %}{% endblock %}
+</main>
+</body>
+</html>

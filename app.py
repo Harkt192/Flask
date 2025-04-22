@@ -1,11 +1,30 @@
 import flask
-from Scripts.bottle import request
 
 app = flask.Flask(__name__)
 
 @app.route('/')
 def base_page():
     return flask.render_template("main.html")
+
+@app.route("/test")
+def test_page():
+    return flask.render_template("test.html", title="test")
+
+@app.route("/apple")
+def apple():
+    return flask.render_template("apple.html", title="Apple")
+
+@app.route("/banana")
+def banana():
+    return flask.render_template("banana.html", title="Banana")
+
+@app.route("/pear")
+def pear():
+    return flask.render_template("pear.html", title="Pear")
+
+@app.route("/peach")
+def peach():
+    return flask.render_template("peach.html", title="Peach")
 
 @app.route("/index")
 def index_page():

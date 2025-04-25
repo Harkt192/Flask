@@ -1,3 +1,5 @@
+from logging import fatal
+
 import flask
 
 app = flask.Flask(__name__)
@@ -25,6 +27,13 @@ def pear():
 @app.route("/peach")
 def peach():
     return flask.render_template("peach.html", title="Peach")
+
+@app.route("/sites/<num>")
+def site_page(num):
+    if num == "1":
+        return flask.render_template("site1.html", title="Первый сайт")
+    else:
+        return "Сайт не найден."
 
 @app.route("/index")
 def index_page():

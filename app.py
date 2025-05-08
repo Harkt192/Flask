@@ -66,5 +66,12 @@ def form_sample():
             print("No accept")
         return "<h1>Форма отправлена</h1>"
 
+@app.route("/choice/<string:planet_name>")
+def choose_planet(planet_name):
+    if planet_name == "Марс":
+        return flask.render_template("mars.html")
+    elif planet_name == "Юпитер":
+        return flask.render_template("jupiter.html")
+
 
 app.run(port=8888, host="127.0.0.1")

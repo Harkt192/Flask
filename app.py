@@ -1,5 +1,3 @@
-from logging import fatal
-
 import flask
 
 app = flask.Flask(__name__)
@@ -7,33 +5,6 @@ app = flask.Flask(__name__)
 @app.route('/')
 def base_page():
     return flask.render_template("main.html")
-
-@app.route("/test")
-def test_page():
-    return flask.render_template("test.html", title="test")
-
-@app.route("/apple")
-def apple():
-    return flask.render_template("apple.html", title="Apple")
-
-@app.route("/banana")
-def banana():
-    return flask.render_template("banana.html", title="Banana")
-
-@app.route("/pear")
-def pear():
-    return flask.render_template("pear.html", title="Pear")
-
-@app.route("/peach")
-def peach():
-    return flask.render_template("peach.html", title="Peach")
-
-@app.route("/sites/<num>")
-def site_page(num):
-    if num == "1":
-        return flask.render_template("site1.html", title="Первый сайт")
-    else:
-        return "Сайт не найден."
 
 @app.route("/index")
 def index_page():
@@ -96,5 +67,4 @@ def form_sample():
         return "<h1>Форма отправлена</h1>"
 
 
-if __name__ == '__main__':
-    app.run(port=8000, host="127.0.0.1")
+app.run(port=8888, host="127.0.0.1")

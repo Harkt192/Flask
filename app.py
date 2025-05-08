@@ -73,5 +73,14 @@ def choose_planet(planet_name):
     elif planet_name == "Юпитер":
         return flask.render_template("jupiter.html")
 
+@app.route("/results/<string:nickname>/<int:level>/<float:rating>")
+def results(nickname, level, rating):
+    return flask.render_template(
+        "results.html",
+        nickname=nickname,
+        level=level,
+        rating=rating
+    )
+
 
 app.run(port=8888, host="127.0.0.1")

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="centered_div">
+        <h1>Загрузка фотографии</h1>
+        <h2>для участия в миссии</h2>
+        <div class="load_div">
+            <p>Приложите фотографию</p>
+            <form method="post" enctype="multipart/form-data">
+                <input class="input_file" type="file" name="file" onchange="this.form.submit()">
+                {{ message }}
+            </form>
+            <div>
+                {% if filename != "" %}
+                    <img style="width: 100%" src="{{ url_for('static', filename='uploads/' + filename) }}" alt="{{ filename }}">
+                {% endif %}
+            </div>
+            <form method="post">
+                <button class="submit-btn" type="submit" name="send_file" value="{{ filename }}">Отправить фото</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

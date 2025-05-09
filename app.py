@@ -6,29 +6,36 @@ import threading
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def base_page():
     return render_template("main.html")
+
 
 @app.route("/index")
 def index_page():
     return render_template("index.html")
 
+
 @app.route("/promotion")
 def promotion_page():
     return render_template("promotion.html")
+
 
 @app.route("/image_mars")
 def image_mars_page():
     return render_template("image_mars.html")
 
+
 @app.route('/bootstrap_sample')
 def bootstrap():
     return render_template("bootstrap_sample.html")
 
+
 @app.route("/promotion_image")
 def promotion_image_page():
     return render_template("promotion_image.html")
+
 
 @app.route('/astronaut_selection', methods=['POST', 'GET'])
 def form_sample():
@@ -70,12 +77,14 @@ def form_sample():
             print("No accept")
         return "<h1>Форма отправлена</h1>"
 
+
 @app.route("/choice/<string:planet_name>")
 def choose_planet(planet_name):
     if planet_name == "Марс":
         return render_template("mars.html")
     elif planet_name == "Юпитер":
         return render_template("jupiter.html")
+
 
 @app.route("/results/<string:nickname>/<int:level>/<float:rating>")
 def results(nickname, level, rating):
@@ -104,7 +113,7 @@ def upload_file():
             temp_filename = request.form["send_file"]
             filename = temp_filename.replace("temp_", "")
             if not os.path.exists(
-                os.path.join("static/uploads", filename)
+                    os.path.join("static/uploads", filename)
             ):
                 os.rename(
                     os.path.join("static/uploads", temp_filename),
@@ -131,7 +140,26 @@ def upload_file():
                 file.save(temp_path)
                 LAST_FILENAME = filename
 
-    return render_template('upload.html', message="", filename=filename)
+    return render_template("upload.html", message="", filename=filename)
+
+
+@app.route("/carousel")
+def carousel_page():
+    carousel_images = [
+        {"src": "images/mars_image_1.jpg",
+         "alt": "Марс 1",
+         "caption": "Первый слайд",
+         "description": "Это очень красивый Марс"},
+        {"src": "images/mars_image_2.png",
+         "alt": "Марс 2",
+         "caption": "Второй слайд",
+         "description": "А этот ещё красивее"},
+        {"src": "images/mars_image_3.jpg",
+         "alt": "Марс 3",
+        "caption": "Третий слайд",
+         "description": "Этот неимоверно красивый"}
+    ]
+    return render_template("mars_carousel.html", carousel_images=carousel_images)
 
 
 app.run(port=8888, host="127.0.0.1")

@@ -7,7 +7,27 @@ import threading
 app = Flask(__name__)
 
 
-@app.route('/312')
+PROFESSIONS = [
+    "инженер-исследователь",
+    "пилот",
+    "строитель",
+    "экзобиолог",
+    "врач",
+    "инженер по терраформированию",
+    "климатолог",
+    "специалист по радиальной защите",
+    "астрогеолог",
+    "гляциолог",
+    "инженер жизнеобеспеченья",
+    "метеоролог",
+    "оператор марсохода",
+    "киберинженер",
+    "штурман",
+    "пилот дронов"
+]
+
+
+@app.route('/')
 def base_page():
     return render_template("main.html")
 
@@ -196,6 +216,14 @@ def trainig_page(speciality):
         src = "../static/images/spaceship.jpg"
 
     return render_template("training.html", h2=h2, src=src)
+
+
+@app.route("/list_prof/<string:list_>")
+def list_prof(list_):
+    global PROFESSIONS
+    return render_template("list_prof.html",
+                           profs=PROFESSIONS,
+                           par=list_)
 
 
 app.run(port=8888, host="127.0.0.1")

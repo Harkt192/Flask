@@ -48,3 +48,21 @@ button.submit-btn {
     position: absolute;
     bottom: 1em;
 }
+.carousel-item {
+	transition: -webkit-transform 0.5s ease;
+	transition: transform 0.5s ease;
+	transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+	-webkit-backface-visibility: visible;
+	        backface-visibility: visible;
+}
+
+div.container {
+    display: flex;
+    justify-content: center;
+}
+
+img.image {
+    background-color: lavenderblush;
+    padding: 2em 2em 2em 2em;
+    border-radius: 2em;
+}

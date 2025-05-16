@@ -7,7 +7,7 @@ import threading
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/312')
 def base_page():
     return render_template("main.html")
 
@@ -143,7 +143,7 @@ def upload_file():
     return render_template("upload.html", message="", filename=filename)
 
 
-@app.route("/carousel")
+@app.route("/")
 def carousel_page():
     carousel_images = [
         {"src": "images/mars_image_1.jpg",
@@ -160,6 +160,42 @@ def carousel_page():
          "description": "Этот неимоверно красивый"}
     ]
     return render_template("mars_carousel.html", carousel_images=carousel_images)
+
+@app.route("/carousel")
+def carousedasl_page():
+    carousel_images = [
+        {"src": "images/mars_image_1.jpg",
+         "alt": "Марс 1",
+         "caption": "Первый слайд",
+         "description": "Это очень красивый Марс"},
+        {"src": "images/mars_image_2.png",
+         "alt": "Марс 2",
+         "caption": "Второй слайд",
+         "description": "А этот ещё красивее"},
+        {"src": "images/mars_image_3.jpg",
+         "alt": "Марс 3",
+        "caption": "Третий слайд",
+         "description": "Этот неимоверно красивый"}
+    ]
+    return render_template("carousel.html", carousel_images=carousel_images)
+
+
+@app.route("/training/<string:speciality>")
+def trainig_page(speciality):
+    h2 = ""
+    src = ""
+    speciality = speciality.lower()
+    if "инженер" in speciality:
+        h2 = "Инжернерные тренажеры"
+        src = "../static/images/house.jpg"
+    elif "врач" in speciality:
+        h2 = "Врачебные тренажеры"
+        src = "../static/images/anatomy.jpg"
+    else:
+        h2 = "Научные симуляторы"
+        src = "../static/images/spaceship.jpg"
+
+    return render_template("training.html", h2=h2, src=src)
 
 
 app.run(port=8888, host="127.0.0.1")

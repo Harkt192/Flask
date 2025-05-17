@@ -2,9 +2,11 @@ import os
 from os.path import exists
 
 from flask import Flask, request, render_template, redirect
+from forms.user import AstronautLoginForm
 import threading
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret_key'
 
 
 PROFESSIONS = [
@@ -29,7 +31,15 @@ PROFESSIONS = [
 
 @app.route('/')
 def base_page():
-    return render_template("main.html")
+    return render_template("main.html", title="Сайт")
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = AstronautLoginForm()
+    if form.validate_on_submit():
+        return redirect('/')
+    return render_template('login.html', title='Аварийный доступ', form=form)
 
 
 @app.route("/index")

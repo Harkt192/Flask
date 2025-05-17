@@ -3,7 +3,7 @@ from os.path import exists
 
 from flask import Flask, request, render_template, redirect
 from forms.user import AstronautLoginForm
-import threading
+import random
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
@@ -55,6 +55,29 @@ def distribution():
     return render_template("distribution.html",
                            title="Distribution",
                            people=people)
+
+
+# Почему-то, если добавить параметры через слеш ("/table/<string:sex>/<int:year>")
+# то перестает работать загрузка изображений как и через html, так и через css
+# поэтому приходиться так реализовывать, для ввода несольких параметров, нужно перейти на страницу типа:
+# http://127.0.0.1:5000/table/male&16
+@app.route("/table/<string:sex>&<int:year>")
+def table(sex, year):
+    r = hex(random.randint(0, 254))[2:].rjust(2, "0")
+    g = hex(random.randint(0, 254))[2:].rjust(2, "0")
+    b = hex(random.randint(0, 254))[2:].rjust(2, "0")
+    if sex == "male":
+        b = "FF"
+        r = "00"
+    else:
+        b = "FF"
+        r = "FF"
+    color = r + g + b
+    return render_template("table.html",
+                           title="Оформление каюты",
+                           color=color,
+                           year=year
+                           )
 
 
 @app.route("/index")

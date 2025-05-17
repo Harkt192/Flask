@@ -58,8 +58,22 @@ img.image {
     border-radius: 2em;
 }
 
-div.centered_div {
-    display: block;
-    align-items: center;
-    justify-content: center;
+div.image-adult {
+    background-image: url("static/images/marsianin.png");
+    width: 660px;
+    height: 680px;
+}
+
+div.image-adult {
+    background-image: url("static/images/marsian.png");
+    width: 660px;
+    height: 680px;
+}
+
+p.heading-p {
+    text-align: center;
+    background-color: lightgray;
+    padding-top: 0.6em;
+    padding-bottom: 0.6em;
+    margin: 0;
 }

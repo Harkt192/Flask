@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Оформление каюты</h1>
+    <div class="container">
+        <div class="box">
+            <p class="heading-p">Цвет стен</p>
+            <div style="width: 660px; height: 680px; background-color: #{{ color }}"></div>
+        </div>
+        <div class="box">
+            <p class="heading-p">Эмблема</p>
+            {% if year < 21 %}
+                <img src="../static/images/marsianin.png" alt="" style="width: 660px; height: 680px">
+            {% else %}
+                <img src="../static/images/marsian.png" alt="" style="width: 660px; height: 680px">
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

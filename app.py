@@ -42,6 +42,21 @@ def login():
     return render_template('login.html', title='Аварийный доступ', form=form)
 
 
+@app.route("/distribution")
+def distribution():
+    people = [
+        {"name": "Ридли Скотт", "status": "Капитан корабля"},
+        {"name": "Энди Уир", "status": None},
+        {"name": "Марк Уотни", "status": None},
+        {"name": "Венката Капур", "status": None},
+        {"name": "Тедди Сандерс", "status": None},
+        {"name": "Шон Бир", "status": None}
+    ]
+    return render_template("distribution.html",
+                           title="Distribution",
+                           people=people)
+
+
 @app.route("/index")
 def index_page():
     return render_template("index.html")

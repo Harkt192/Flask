@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="centered_div">
+        <h1>Размещение по каютам</h1>
+        <div>
+            {% for person in people %}
+                {% if person.status %}
+                    <p>
+                        {{ person.name }} - Каюта № {{ loop.index }} - {{ person.status }}
+                    </p>
+                {% else %}
+                    <p>
+                        {{ person.name }} - Каюта № {{ loop.index }}
+                    </p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -57,3 +57,9 @@ img.image {
     padding: 2em 2em 2em 2em;
     border-radius: 2em;
 }
+
+div.centered_div {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}

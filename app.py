@@ -4,6 +4,7 @@ from os.path import exists
 from flask import Flask, request, render_template, redirect
 from forms.user import AstronautLoginForm
 import random
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret_key'
@@ -63,9 +64,7 @@ def distribution():
 # http://127.0.0.1:5000/table/male&16
 @app.route("/table/<string:sex>&<int:year>")
 def table(sex, year):
-    r = hex(random.randint(0, 254))[2:].rjust(2, "0")
     g = hex(random.randint(0, 254))[2:].rjust(2, "0")
-    b = hex(random.randint(0, 254))[2:].rjust(2, "0")
     if sex == "male":
         b = "FF"
         r = "00"
@@ -78,6 +77,13 @@ def table(sex, year):
                            color=color,
                            year=year
                            )
+
+
+@app.route("/member")
+def member():
+    with open("templates/astronauts.json", "r", encoding="utf-8") as file:
+        people = json.load(file)
+    return render_template("member.html", title="Member", people=people)
 
 
 @app.route("/index")

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% set person = people|random %}
+    <div class="centered-div">
+        <h1>{{ person.name }} {{ person.surname }}</h1>
+        <img class="person-image" src="../{{ person.photo }}" alt="">
+        <h4>{{ person.professions|sort|join(', ') }}</h4>
+    </div>
+{% endblock %}

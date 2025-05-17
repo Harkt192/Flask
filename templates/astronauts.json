@@ -1,0 +1,86 @@
+[
+  {
+    "surname": "Скотт",
+    "name": "Ридли",
+    "email": "",
+    "education": "",
+    "professions": [
+      "астрогеолог", "специалист по радиальной защите"
+    ],
+    "status": "Captain",
+    "sex": "male",
+    "motivation": "",
+    "photo": "static/images/man6.png",
+    "stay": true
+  },
+  {
+    "surname": "Уир",
+    "name": "Энди",
+    "email": "",
+    "education": "",
+    "professions": [
+      "гляциолог", "врач", "инженер-исследователь"
+    ],
+    "status": "Astronaut",
+    "sex": "male",
+    "motivation": "",
+    "photo": "static/images/man1.jpg",
+    "stay": true
+  },
+  {
+    "surname": "Уотни",
+    "name": "Марк",
+    "email": "",
+    "education": "",
+    "professions": [
+      "штурман", "пилот дронов", "метеоролог"
+    ],
+    "status": "Astronaut",
+    "sex": "male",
+    "motivation": "",
+    "photo": "static/images/man2.png",
+    "stay": true
+  },
+  {
+    "surname": "Капур",
+    "name": "Венката",
+    "email": "",
+    "education": "",
+    "professions": [
+      "экзобиолог", "строитель"
+    ],
+    "status": "Astronaut",
+    "sex": "female",
+    "motivation": "",
+    "photo": "static/images/man3.png",
+    "stay": true
+  },
+  {
+    "surname": "Сандерс",
+    "name": "Тедди",
+    "email": "",
+    "education": "",
+    "professions": [
+      "киберинженер", "пилот", "климатолог"
+    ],
+    "status": "Astronaut",
+    "sex": "male",
+    "motivation": "",
+    "photo": "static/images/man4.png",
+    "stay": true
+  },
+  {
+    "surname": "Бир",
+    "name": "Шон",
+    "email": "",
+    "education": "",
+    "professions": [
+      "инженер по терраформированию", "строитель", "оператор марсохода"
+    ],
+    "status": "Astronaut",
+    "sex": "male",
+    "motivation": "",
+    "photo": "static/images/man5.png",
+    "stay": true
+  }
+]
